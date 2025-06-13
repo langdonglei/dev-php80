@@ -13,10 +13,13 @@ RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac
 # php-mysql
 RUN docker-php-ext-install pdo_mysql
 
+# config file
 COPY nginx.conf /etc/nginx/
 COPY redis.conf /etc/
 COPY php.ini /usr/local/etc/php/
 COPY www.conf /usr/local/etc/php-fpm.d/
+
+# entry script
 COPY Docker.sh /
 
 ENTRYPOINT ["sh","/Docker.sh"]
