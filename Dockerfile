@@ -15,6 +15,7 @@ RUN docker-php-ext-install pdo_mysql
 
 COPY nginx.conf /etc/nginx/
 COPY redis.conf /etc/
+COPY www.conf /usr/local/etc/php-fpm.d/
 COPY Docker.sh /
 
 ENTRYPOINT ["sh","/Docker.sh"]
